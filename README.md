@@ -30,15 +30,14 @@ claude-marketing-demo-slides/
 ├── assets/
 │   ├── css/style.css     # ดีไซน์ทั้งหมดของ deck
 │   ├── js/deck.js        # navigation / keyboard / progress bar
-│   └── img/               # ใส่รูป QR code จริงที่นี่ (ดู assets/img/README.md)
+│   └── img/               # รูป QR code จริงทั้ง 4 ไฟล์ (ดู assets/img/README.md)
 └── README.md
 ```
 
-## ใส่รูป QR Code
+## เปลี่ยนรูป QR Code
 
-ดูรายละเอียดไฟล์ที่ต้องเตรียมใน [`assets/img/README.md`](assets/img/README.md) แล้วแก้สไลด์ที่ 4
-ใน `index.html` เปลี่ยนจาก `<span class="qr-placeholder">...</span>` เป็น
-`<img src="assets/img/qr-sheet.png" alt="QR Google Sheet" />` (ทำแบบเดียวกันกับอีก 3 ช่อง)
+รูปทั้ง 4 ช่องเชื่อมไว้ใน `index.html` (สไลด์ที่ 4) แล้ว หากต้องอัปเดต QR ใหม่ ให้อัปโหลดไฟล์ทับชื่อเดิม
+ตามรายการใน [`assets/img/README.md`](assets/img/README.md) โดยไม่ต้องแก้ `index.html`
 
 ## เนื้อหาสไลด์
 
