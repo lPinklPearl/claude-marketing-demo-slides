@@ -1,4 +1,4 @@
-# รูปสไลด์ Claude Code — Data Chart Dashboard (สไลด์ที่ 10)
+# รูปสไลด์ Claude Code — Data Chart Dashboard (สไลด์ที่ 9)
 
 ใส่ไฟล์เดียว เว็บจะเปลี่ยนจาก placeholder เป็นรูปจริงทันที ไม่ต้องแก้ `index.html`
 

@@ -1,4 +1,4 @@
-# รูปสไลด์ Claude Code — Web Visual Driven (สไลด์ที่ 9)
+# รูปสไลด์ Claude Code — Web Visual Driven (สไลด์ที่ 8)
 
 ใส่ไฟล์เดียว เว็บจะเปลี่ยนจาก placeholder เป็นรูปจริงทันที ไม่ต้องแก้ `index.html`
 

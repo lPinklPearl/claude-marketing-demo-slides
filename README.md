@@ -22,6 +22,9 @@ python3 -m http.server 8000
 **การควบคุมสไลด์:** ปุ่ม ‹ › ที่แถบล่าง, ลูกศรซ้าย/ขวาบนคีย์บอร์ด, Space เพื่อไปหน้าถัดไป,
 Home/End เพื่อไปสไลด์แรก/สุดท้าย, ปัดซ้าย-ขวาบนมือถือ/แท็บเล็ต
 
+**ดูรูปเต็ม:** ในสไลด์รวมรูปหลักฐาน (Chat / Cowork / Code-Visual / Code-DataChart) คลิกที่รูปเพื่อเปิด
+ดูแบบเต็มจอ ปิดได้ด้วยปุ่ม ✕, คลิกพื้นหลัง, หรือกด Escape
+
 ## โครงสร้างไฟล์
 
 ```
@@ -51,10 +54,10 @@ placeholder ไว้ก่อนจนกว่าจะมีไฟล์ร�
 1. Cover
 2. ใช้ Claude ทำอะไรบ้าง (Chat → Cowork → Code)
 3. ผลลัพธ์ที่ได้จากแต่ละเครื่องมือ
-4. QR Code — Sheet / เว็บ Visual / เว็บ Dashboard / Data Chart Dashboard (สำหรับทีมบริหาร)
-5. ต่อยอดได้อย่างไรบ้าง
-6. ค่าใช้จ่ายโดยประมาณ (Pro / Max / Team / Enterprise)
-7. หลักฐานการใช้งาน — Claude Chat (3 ภาพ)
-8. หลักฐานการใช้งาน — Claude Cowork (1 ภาพ)
-9. หลักฐานการใช้งาน — Claude Code, Web Visual Driven (1 ภาพ)
-10. หลักฐานการใช้งาน — Claude Code, Data Chart Dashboard (1 ภาพ)
+4. ต่อยอดได้อย่างไรบ้าง
+5. ค่าใช้จ่ายโดยประมาณ (Pro / Max / Team / Enterprise)
+6. หลักฐานการใช้งาน — Claude Chat (3 ภาพ, คลิกดูเต็มได้)
+7. หลักฐานการใช้งาน — Claude Cowork (1 ภาพ, คลิกดูเต็มได้)
+8. หลักฐานการใช้งาน — Claude Code, Web Visual Driven (1 ภาพ, คลิกดูเต็มได้)
+9. หลักฐานการใช้งาน — Claude Code, Data Chart Dashboard (1 ภาพ, คลิกดูเต็มได้)
+10. QR Code — Sheet / เว็บ Visual / เว็บ Dashboard / Data Chart Dashboard (สำหรับทีมบริหาร)

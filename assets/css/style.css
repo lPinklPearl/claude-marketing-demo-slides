@@ -34,6 +34,7 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
+body.lightbox-open { overflow: hidden; }
 
 h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
 p { margin: 0; }
@@ -313,6 +314,65 @@ img { max-width: 100%; display: block; }
   color: var(--ink-faint);
 }
 .shot-slot p { font-size: 0.86rem; color: var(--ink-soft); }
+img.shot-box {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+img.shot-box:hover, img.shot-box:focus-visible {
+  transform: scale(1.015);
+  filter: brightness(1.06);
+  outline: none;
+}
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: rgba(8, 6, 12, 0.86);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+  transform: scale(0.97);
+  transition: transform 0.25s ease;
+}
+.lightbox.is-open .lightbox-img { transform: scale(1); }
+.lightbox-close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+.lightbox-close:hover { border-color: var(--coral); transform: translateY(-1px); }
+.lightbox-close:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .lightbox, .lightbox-img, img.shot-box { transition: none; }
+}
 
 /* ---------- next steps slide ---------- */
 .next-grid {
