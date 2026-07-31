@@ -26,7 +26,7 @@ Home/End เพื่อไปสไลด์แรก/สุดท้าย, �
 
 ```
 claude-marketing-demo-slides/
-├── index.html            # เนื้อหาสไลด์ทั้ง 7 หน้า
+├── index.html            # เนื้อหาสไลด์ทั้ง 6 หน้า
 ├── assets/
 │   ├── css/style.css     # ดีไซน์ทั้งหมดของ deck
 │   ├── js/deck.js        # navigation / keyboard / progress bar
@@ -38,14 +38,13 @@ claude-marketing-demo-slides/
 
 ดูรายละเอียดไฟล์ที่ต้องเตรียมใน [`assets/img/README.md`](assets/img/README.md) แล้วแก้สไลด์ที่ 4
 ใน `index.html` เปลี่ยนจาก `<span class="qr-placeholder">...</span>` เป็น
-`<img src="assets/img/qr-sheet.png" alt="QR Google Sheet" />` (ทำแบบเดียวกันกับอีก 2 ช่อง)
+`<img src="assets/img/qr-sheet.png" alt="QR Google Sheet" />` (ทำแบบเดียวกันกับอีก 3 ช่อง)
 
 ## เนื้อหาสไลด์
 
 1. Cover
 2. ใช้ Claude ทำอะไรบ้าง (Chat → Cowork → Code)
 3. ผลลัพธ์ที่ได้จากแต่ละเครื่องมือ
-4. QR Code — Sheet / เว็บ Visual / เว็บ Dashboard
+4. QR Code — Sheet / เว็บ Visual / เว็บ Dashboard / Data Chart Dashboard (สำหรับทีมบริหาร)
 5. ต่อยอดได้อย่างไรบ้าง
 6. ค่าใช้จ่ายโดยประมาณ (Pro / Max / Team / Enterprise)
-7. ปิดท้าย + ช่องทางติดต่อ
