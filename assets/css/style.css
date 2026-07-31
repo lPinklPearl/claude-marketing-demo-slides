@@ -1,0 +1,382 @@
+/* ===========================================================
+   Claude for Marketing — Demo Deck
+   Deliberate single (dark, stage-lit) theme: presentation decks
+   are almost always projected/screen-shared, so this commits to
+   one high-contrast look rather than tracking OS light/dark.
+   =========================================================== */
+
+:root {
+  --bg: #10131f;
+  --bg-alt: #171c2e;
+  --surface: #1b2136;
+  --surface-2: #232a44;
+  --ink: #f4f1e8;
+  --ink-soft: #b9bdd8;
+  --ink-faint: #767b9c;
+  --coral: #ff7a52;
+  --coral-deep: #e2542b;
+  --coral-soft: #3a2318;
+  --teal: #3ddbc0;
+  --teal-deep: #22a68f;
+  --teal-soft: #12312c;
+  --line: #2b3252;
+  --font-display: "Sarabun", "Noto Sans Thai", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+  --font-body: "Noto Sans Thai", "Sarabun", "Leelawadee UI", "Thonburi", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+img { max-width: 100%; display: block; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.6em;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* ---------- deck shell ---------- */
+.deck {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse 55% 45% at 88% 4%, rgba(255, 122, 82, 0.14), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 4% 96%, rgba(61, 219, 192, 0.12), transparent 60%),
+    var(--bg);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 4.5rem) clamp(2rem, 8vw, 7rem);
+}
+.slide.is-active {
+  display: flex;
+  animation: slide-in 0.5s cubic-bezier(.22, .9, .32, 1);
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide.is-active { animation: none; }
+}
+
+.slide-index {
+  position: absolute;
+  top: clamp(1.25rem, 3vw, 2.5rem);
+  right: clamp(2rem, 8vw, 7rem);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+.slide-index b { color: var(--ink-soft); }
+
+/* ---------- typography scale ---------- */
+.slide h2.title {
+  font-size: clamp(1.9rem, 1.1rem + 2.6vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-top: 0.5rem;
+  max-width: 30ch;
+}
+.slide .lede {
+  margin-top: 1rem;
+  max-width: 62ch;
+  font-size: clamp(1rem, 0.3vw + 0.95rem, 1.2rem);
+  color: var(--ink-soft);
+}
+
+/* ---------- cover slide ---------- */
+.slide--cover { align-items: flex-start; }
+.slide--cover .brand {
+  font-size: clamp(2.6rem, 1.6rem + 4vw, 5.2rem);
+  font-weight: 800;
+  background: linear-gradient(110deg, var(--coral) 10%, var(--coral-deep) 40%, var(--teal-deep) 70%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.4rem 0 0;
+}
+.slide--cover .sub {
+  margin-top: 1.4rem;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 0.4vw + 1rem, 1.3rem);
+  max-width: 46ch;
+}
+.cover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2.2rem;
+}
+.cover-tags span {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  background: var(--surface);
+}
+
+/* ---------- workflow slide ---------- */
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.4rem;
+}
+.workflow-step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px 20px 4px 20px;
+  padding: 1.6rem 1.5rem;
+  position: relative;
+}
+.workflow-step .step-no {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+.workflow-step h3 {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  color: var(--coral);
+}
+.workflow-step p {
+  margin-top: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.workflow-arrow {
+  position: absolute;
+  top: 50%;
+  right: -1.1rem;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  font-size: 1.4rem;
+}
+.workflow-step:last-child .workflow-arrow { display: none; }
+
+/* ---------- results slide ---------- */
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.2rem;
+}
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.result-card .tool-tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+.result-card--chat .tool-tag { background: var(--coral-soft); color: var(--coral); }
+.result-card--cowork .tool-tag { background: var(--surface-2); color: var(--ink-soft); }
+.result-card--code .tool-tag { background: var(--teal-soft); color: var(--teal); }
+.result-card h3 { font-size: 1.1rem; }
+.result-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.88rem; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.35rem; }
+
+/* ---------- QR slide ---------- */
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+.qr-slot {
+  background: var(--surface);
+  border: 1.5px dashed var(--line);
+  border-radius: 20px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+}
+.qr-box {
+  width: min(11rem, 100%);
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.qr-box img { width: 100%; height: 100%; object-fit: contain; }
+.qr-box .qr-placeholder {
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  padding: 0 1rem;
+  line-height: 1.5;
+}
+.qr-slot h3 { font-size: 1rem; }
+.qr-slot p { font-size: 0.82rem; color: var(--ink-soft); }
+.qr-slot code {
+  font-size: 0.72rem;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+/* ---------- next steps slide ---------- */
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.6rem;
+  margin-top: 2.2rem;
+}
+.next-item {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.next-item .mark {
+  flex-shrink: 0;
+  width: 8px; height: 8px;
+  margin-top: 0.5rem;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.next-item p { color: var(--ink-soft); font-size: 0.95rem; }
+.next-item b { color: var(--ink); }
+
+/* ---------- pricing slide ---------- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  margin-top: 2.2rem;
+}
+.price-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px 20px 4px 20px;
+  padding: 1.3rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.price-card.is-highlight { border-color: var(--coral); }
+.price-card .plan-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+.price-card .plan-price { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.price-card .plan-price small { font-size: 0.85rem; font-weight: 600; color: var(--ink-faint); }
+.price-card .plan-thb { font-size: 0.78rem; color: var(--teal); font-variant-numeric: tabular-nums; }
+.price-card .plan-desc { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.3rem; }
+.pricing-note { margin-top: 1.4rem; font-size: 0.76rem; color: var(--ink-faint); max-width: 60ch; }
+
+/* ---------- closing slide ---------- */
+.slide--closing { align-items: center; text-align: center; }
+.slide--closing h2.title { max-width: none; }
+.slide--closing .sub { max-width: 40ch; margin: 1rem auto 0; color: var(--ink-soft); }
+.contact-line {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  padding: 0.6rem 1.2rem;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+}
+
+/* ---------- controls ---------- */
+.controls {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem clamp(2rem, 8vw, 7rem) 1.1rem;
+  background: linear-gradient(0deg, var(--bg) 40%, transparent);
+}
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--coral), var(--teal));
+  transition: width 0.4s ease;
+}
+.nav-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
+}
+.nav-btn:hover { border-color: var(--coral); transform: translateY(-1px); }
+.nav-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+.nav-btn:disabled { opacity: 0.35; cursor: default; transform: none; }
+.slide-counter { font-variant-numeric: tabular-nums; font-size: 0.8rem; color: var(--ink-faint); white-space: nowrap; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  body { overflow: auto; }
+  .deck { height: auto; min-height: 100vh; }
+  .slide {
+    position: relative;
+    display: none;
+    min-height: 100vh;
+    padding-bottom: 6rem;
+  }
+  .slide.is-active { display: flex; }
+  .workflow, .results, .qr-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .next-grid { grid-template-columns: 1fr; }
+  .workflow-arrow { display: none; }
+}
