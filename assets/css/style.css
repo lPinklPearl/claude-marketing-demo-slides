@@ -256,6 +256,64 @@ img { max-width: 100%; display: block; }
   border-radius: 6px;
 }
 
+/* ---------- evidence gallery slides ---------- */
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.2rem;
+}
+.shot-grid--single {
+  grid-template-columns: minmax(0, 34rem);
+  justify-content: center;
+  margin-top: 2rem;
+}
+.shot-slot {
+  background: var(--surface);
+  border: 1.5px dashed var(--line);
+  border-radius: 20px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.shot-box {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+}
+.shot-grid--single .shot-box { aspect-ratio: 16 / 9; }
+.shot-box .shot-placeholder {
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  text-align: center;
+  padding: 0 1.2rem;
+  line-height: 1.6;
+}
+.shot-box .shot-placeholder code {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+.shot-slot .shot-no {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.shot-slot p { font-size: 0.86rem; color: var(--ink-soft); }
+
 /* ---------- next steps slide ---------- */
 .next-grid {
   display: grid;
@@ -354,7 +412,8 @@ img { max-width: 100%; display: block; }
     padding-bottom: 6rem;
   }
   .slide.is-active { display: flex; }
-  .workflow, .results, .qr-grid { grid-template-columns: 1fr; }
+  .workflow, .results, .qr-grid, .shot-grid { grid-template-columns: 1fr; }
+  .shot-grid--single { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .next-grid { grid-template-columns: 1fr; }
   .workflow-arrow { display: none; }

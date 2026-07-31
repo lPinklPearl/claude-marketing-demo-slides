@@ -26,18 +26,25 @@ Home/End เพื่อไปสไลด์แรก/สุดท้าย, �
 
 ```
 claude-marketing-demo-slides/
-├── index.html            # เนื้อหาสไลด์ทั้ง 6 หน้า
+├── index.html            # เนื้อหาสไลด์ทั้ง 10 หน้า
 ├── assets/
 │   ├── css/style.css     # ดีไซน์ทั้งหมดของ deck
 │   ├── js/deck.js        # navigation / keyboard / progress bar
-│   └── img/               # รูป QR code จริงทั้ง 4 ไฟล์ (ดู assets/img/README.md)
+│   └── img/
+│       ├── qr-*.png          # รูป QR code จริงทั้ง 4 ไฟล์ (ดู assets/img/README.md)
+│       ├── chat/              # รูปหลักฐานสไลด์ Claude Chat (3 ไฟล์ — ดู assets/img/chat/README.md)
+│       ├── cowork/             # รูปหลักฐานสไลด์ Claude Cowork (1 ไฟล์)
+│       ├── code-visual/        # รูปหลักฐานสไลด์ Claude Code — Web Visual Driven (1 ไฟล์)
+│       └── code-datachart/     # รูปหลักฐานสไลด์ Claude Code — Data Chart Dashboard (1 ไฟล์)
 └── README.md
 ```
 
-## เปลี่ยนรูป QR Code
+## เปลี่ยนรูป QR Code / รูปหลักฐาน
 
-รูปทั้ง 4 ช่องเชื่อมไว้ใน `index.html` (สไลด์ที่ 4) แล้ว หากต้องอัปเดต QR ใหม่ ให้อัปโหลดไฟล์ทับชื่อเดิม
-ตามรายการใน [`assets/img/README.md`](assets/img/README.md) โดยไม่ต้องแก้ `index.html`
+รูปทุกช่องเชื่อมไว้ใน `index.html` แล้ว หากต้องอัปเดต ให้อัปโหลดไฟล์ทับชื่อเดิมตามรายการใน
+[`assets/img/README.md`](assets/img/README.md) (QR) หรือ README ย่อยในแต่ละโฟลเดอร์ย่อย (`chat/`,
+`cowork/`, `code-visual/`, `code-datachart/`) โดยไม่ต้องแก้ `index.html` — สไลด์รูปหลักฐานจะโชว์กรอบ
+placeholder ไว้ก่อนจนกว่าจะมีไฟล์รูปจริงตามชื่อนั้นวางอยู่
 
 ## เนื้อหาสไลด์
 
@@ -47,3 +54,7 @@ claude-marketing-demo-slides/
 4. QR Code — Sheet / เว็บ Visual / เว็บ Dashboard / Data Chart Dashboard (สำหรับทีมบริหาร)
 5. ต่อยอดได้อย่างไรบ้าง
 6. ค่าใช้จ่ายโดยประมาณ (Pro / Max / Team / Enterprise)
+7. หลักฐานการใช้งาน — Claude Chat (3 ภาพ)
+8. หลักฐานการใช้งาน — Claude Cowork (1 ภาพ)
+9. หลักฐานการใช้งาน — Claude Code, Web Visual Driven (1 ภาพ)
+10. หลักฐานการใช้งาน — Claude Code, Data Chart Dashboard (1 ภาพ)
